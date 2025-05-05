@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Юридические услуги | Полный спектр профессиональной помощи</title>
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #eef2f7;
+      color: #2c3e50;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: hidden;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #3498db;
+      outline: none;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      font-weight: 700;
+      color: #34495e;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Header */
+    header {
+      background-color: #34495e;
+      padding: 18px 1rem;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 1.2rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav a:first-child {
+      margin-left: 0;
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+      color: white;
+      padding: 3rem 1rem 4rem 1rem;
+      text-align: center;
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+      user-select: none;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 1rem auto 0 auto;
+      font-weight: 500;
+    }
+    .btn-primary {
+      background-color: #f1c40f;
+      color: #2c3e50;
+      font-weight: 700;
+      border: none;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.15rem;
+      margin-top: 1.8rem;
+      box-shadow: 0 5px 12px rgba(241, 196, 15, 0.6);
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .btn-primary:hover, .btn-primary:focus {
+      background-color: #d4ac0d;
+      outline: none;
+      box-shadow: 0 7px 14px rgba(212, 172, 13, 0.8);
+    }
+    /* About section */
+    #about {
+      padding: 3rem 1rem 2rem 1rem;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+      margin: 3rem 1rem 3rem 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: text;
+    }
+    #about p {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+      color: #2f4f6f;
+      font-weight: 500;
+    }
+    /* Services */
+    #services {
+      padding: 2.5rem 1rem 3rem 1rem;
+      background: #d6eaf8;
+      margin: 1rem 0 3rem 0;
+      border-radius: 14px;
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: text;
+    }
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+    }
+    .service-item {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      border-radius: 14px;
+      padding: 1.6rem 1.4rem;
+      flex: 1 1 260px;
+      max-width: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .service-item:hover, .service-item:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+      outline: none;
+    }
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 0.8rem;
+      color: #2980b9;
+      user-select: none;
+    }
+    .service-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 1.18rem;
+      color: #2c3e50;
+      user-select: text;
+    }
+    .service-description {
+      font-size: 0.95rem;
+      color: #3a5068;
+      flex-grow: 1;
+      user-select: text;
+    }
+    /* Contact section */
+    #contact {
+      background: white;
+      margin: 1rem auto 3rem auto;
+      padding: 2rem 1rem;
+      max-width: 640px;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+      user-select: text;
+    }
+    #contact h2 {
+      text-align: center;
+      margin-bottom: 1.8rem;
+      color: #34495e;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #222;
+      font-size: 1rem;
+    }
+    input, textarea {
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1.6px solid #ccc;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      user-select: text;
+    }
+    input:focus, textarea:focus {
+      border-color: #2980b9;
+      outline: none;
+      box-shadow: 0 0 10px rgba(41, 128, 185, 0.4);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    button[type="submit"] {
+      background-color: #2980b9;
+      color: white;
+      font-weight: 700;
+      padding: 1rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    button[type="submit"]:hover, button[type="submit"]:focus {
+      background-color: #2471a3;
+      outline: none;
+    }
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: #aab7c4;
+      text-align: center;
+      padding: 1rem 1rem;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #85c1e9;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      .services-list {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      header .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+      .hero {
+        padding-bottom: 2.5rem;
+        border-radius: 0;
+      }
+      body, html {
+        overflow-y: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner container" role="banner">
+      <div class="logo" tabindex="0">Law Expert Plus</div>
+      <nav role="navigation" aria-label="Главное меню">
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" role="region" aria-label="Вступительная секция">
+    <div class="container">
+      <h1>Ваш комплексный партнер в юридической сфере</h1>
+      <p>Надежные юридические решения для бизнеса и частных лиц. Опыт, профессионализм и индивидуальный подход к каждому клиенту.</p>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Связаться с нами">Связаться с нами</button>
+    </div>
+  </section>
+
+  <section id="about" role="region" aria-labelledby="about-title">
+    <h2 id="about-title">О нас</h2>
+    <p>
+      В "Law Expert Plus" мы объединяем многолетний опыт и современные методы работы для предоставления комплексных юридических услуг.
+      Наши специалисты помогут вам с любыми правовыми задачами — от консультаций до представительства в суде. Доверие клиентов — наша лучшая награда.
+    </p>
+  </section>
+
+  <section id="services" role="region" aria-labelledby="services-title">
+    <h2 id="services-title">Наши услуги</h2>
+    <div class="services-list" role="list">
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">⚖️</div>
+        <h3 class="service-title">Юридические консультации</h3>
+        <p class="service-description">Детальные консультации по гражданскому, коммерческому, семейному и другим отраслям права.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">🏢</div>
+        <h3 class="service-title">Регистрация и сопровождение бизнеса</h3>
+        <p class="service-description">Регистрация юридических лиц, сопровождение договоров, лицензирование и налоговое планирование.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">📜</div>
+        <h3 class="service-title">Договорное право</h3>
+        <p class="service-description">Разработка, проверка и оформление договоров, соглашений, коммерческих контрактов.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">⚔️</div>
+        <h3 class="service-title">Представительство в суде</h3>
+        <p class="service-description">Защита интересов в арбитражных и судебных инстанциях всех уровней.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+        <h3 class="service-title">Семейное право</h3>
+        <p class="service-description">Разводы, алименты, раздел имущества, установление опеки и другие вопросы семейного права.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">🏠</div>
+        <h3 class="service-title">Недвижимость и Земля</h3>
+        <p class="service-description">Сделки с недвижимостью, оформление прав собственности, земельные споры и аренда.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">📈</div>
+        <h3 class="service-title">Налоговое консультирование</h3>
+        <p class="service-description">Оптимизация налогов, защита по налоговым спорам, сопровождение проверок.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">🛡️</div>
+        <h3 class="service-title">Интеллектуальная собственность</h3>
+        <p class="service-description">Защита авторских прав, патентов, товарных знаков и коммерческой тайны.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">🚚</div>
+        <h3 class="service-title">Транспортное право</h3>
+        <p class="service-description">Сопровождение сделок, споры и нормативная поддержка в сфере транспорта и логистики.</p>
+      </article>
+      <article class="service-item" tabindex="0" role="listitem">
+        <div class="service-icon" aria-hidden="true">💼</div>
+        <h3 class="service-title">Трудовое право</h3>
+        <p class="service-description">Подготовка документов, консультации по трудовым спорам, защита прав работников и работодателей.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" role="region" aria-labelledby="contact-title">
+    <h2 id="contact-title">Свяжитесь с нами</h2>
+    <form id="contact-form" novalidate>
+      <label for="name">Имя</label>
+      <input type="text" id="name" name="name" placeholder="Ваше имя" required autocomplete="name" />
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Ваш email" required autocomplete="email" />
+      
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" pattern="^\+?\d{7,15}$" />
+      
+      <label for="message">Сообщение</label>
+      <textarea id="message" name="message" placeholder="Ваше сообщение" required></textarea>
+      
+      <button type="submit" aria-label="Отправить сообщение">Отправить</button>
+      <p id="form-status" role="alert" style="margin-top:0.5rem; font-weight: 600;"></p>
+    </form>
+  </section>
+
+  <footer role="contentinfo">
+    © 2024 Law Expert Plus. Все права защищены.
+  </footer>
+
+  <script>
+    // Simple client-side form validation and confirmation
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const phone = this.phone.value.trim();
+      const message = this.message.value.trim();
+
+      if (!name || !email || !message) {
+        status.style.color = 'red';
+        status.textContent = 'Пожалуйста, заполните обязательные поля: Имя, Email и Сообщение.';
+        return;
+      }
+
+      // Simple email validation pattern
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailPattern.test(email)) {
+        status.style.color = 'red';
+        status.textContent = 'Пожалуйста, введите корректный email.';
+        return;
+      }
+
+      // Optional phone validation (if filled)
+      if (phone) {
+        const phonePattern = /^\+?\d{7,15}$/;
+        if (!phonePattern.test(phone.replace(/[^\d\+]/g, ''))) {
+          status.style.color = 'red';
+          status.textContent = 'Пожалуйста, введите корректный номер телефона.';
+          return;
+        }
+      }
+
+      // Simulate message sending
+      status.style.color = '#2980b9';
+      status.textContent = 'Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.';
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>
